@@ -1,5 +1,5 @@
 require "http"
-require "zlib"
+require "compress/zlib"
 
 module Discord
   # Internal wrapper around HTTP::WebSocket to decode the Discord-specific
