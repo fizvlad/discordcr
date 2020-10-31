@@ -45,6 +45,12 @@ module Discord
     # received as part of the gateway READY dispatch, for example)
     def initialize(payload : Discord::Gateway::VoiceServerUpdatePayload,
                    session : Discord::Gateway::Session, user_id : UInt64 | Snowflake)
+      initialize(payload, session.session_id, user_id)
+    end
+
+    # :ditto:
+    def initialize(payload : Discord::Gateway::VoiceServerUpdatePayload,
+                   @session_id, user_id : UInt64 | Snowflake)
       @user_id = user_id.to_u64
       @endpoint = payload.endpoint
       host, port = @endpoint.split(':')
