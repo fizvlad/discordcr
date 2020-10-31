@@ -56,7 +56,6 @@ module Discord
       host, port = @endpoint.split(':')
 
       @server_id = payload.guild_id.to_u64
-      @session_id = session.session_id
       @token = payload.token
 
       @websocket = Discord::WebSocket.new(
